@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 import PropTypes from 'prop-types';
 
 export function Advice({ children }) {
     return (
         <div className="text-[28px] font-extrabold">
-            {`"${children}"`}
+            {
+                isValidElement(children)
+                    ? children
+                    : `{"${children}"}`
+            }
         </div>
     );
 }
@@ -12,5 +16,8 @@ export function Advice({ children }) {
 export default Advice;
 
 Advice.propTypes = {
-    children: PropTypes.string
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+    ])
 };

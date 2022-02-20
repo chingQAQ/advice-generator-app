@@ -40,7 +40,7 @@ function App() {
                         <>
                             <Label number={adviceSlip.slip.id}></Label>
                             <Advice>
-                                {adviceSlip.slip.advice}
+                                <h1>&quot;{adviceSlip.slip.advice}&quot;</h1>
                             </Advice>
                         </>
                     )}
