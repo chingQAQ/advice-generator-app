@@ -36,11 +36,12 @@ function App() {
         <Container className="h-[100vh]">
             <MiddleElement>
                 <Card className="text-center pb-14 min-h-[210px]">
+                    <h1 className="sr-only">Advice generator app</h1>
                     {adviceSlip && (
                         <>
                             <Label number={adviceSlip.slip.id}></Label>
                             <Advice>
-                                <h1>&quot;{adviceSlip.slip.advice}&quot;</h1>
+                                {adviceSlip.slip.advice}
                             </Advice>
                         </>
                     )}
