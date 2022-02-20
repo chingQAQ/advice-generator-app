@@ -37,14 +37,21 @@ function App() {
             <MiddleElement>
                 <Card className="text-center pb-14 min-h-[210px]">
                     <h1 className="sr-only">Advice generator app</h1>
-                    {adviceSlip && (
-                        <>
-                            <Label number={adviceSlip.slip.id}></Label>
-                            <Advice>
-                                {adviceSlip.slip.advice}
-                            </Advice>
-                        </>
-                    )}
+                    {
+                        adviceSlip ? (
+                            <>
+                                <Label number={adviceSlip.slip.id}></Label>
+                                <Advice>
+                                    {adviceSlip.slip.advice}
+                                </Advice>
+                            </>
+                        ) : (
+                            <>
+                                <Label number=""></Label>
+                                <Advice>Loading...</Advice>
+                            </>
+                        )
+                    }
                     <div className="relative w-full h-4 overflow-hidden">
                         <Icon.Divider className="absolute left-1/2 bottom-0 -translate-x-1/2"></Icon.Divider>
                     </div>
