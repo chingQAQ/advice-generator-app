@@ -12,14 +12,16 @@ import { getRandomAdviceSlip, getAdviceSlipById } from '@/apis';
 import { Random } from '@/utils';
 import clsx from 'clsx';
 
-const fetchRandomAdviceSlip = async () => await getRandomAdviceSlip();
-
 function App() {
 
-    const [adviceSlip, setAdviceSlip] = useState(null);
+    const [adviceSlip, setAdviceSlip] = useState();
 
     useEffect(() => {
-        fetchRandomAdviceSlip().then(res => setAdviceSlip(res));
+        (async () => {
+            const ret = await getRandomAdviceSlip();
+            
+            setAdviceSlip(ret);
+        })();
     }, []);
 
     const buttonClickHandler = useCallback(() => {
